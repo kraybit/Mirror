@@ -6,7 +6,7 @@ The NetworkBehaviour class (which you derive from to create your network scripts
 
 ![In this diagram, the circles represent the player game objects marked as the local player on each client](NetworkLocalPlayers.png)
 
-Only the player game object that is “yours” (from your point of view as the player) has the `isLocalPlayer` flag set. Usually you should set this flag in script to determine whether to process input, whether to make the camera track the game object, or do any other client-side things that should only occur for the player belonging to that client.
+Only the player game object that is “yours” (from your point of view as the player) has the `isLocalPlayer` flag set. Usually you should check this flag in script to determine whether to process input, whether to make the camera track the game object, or do any other client-side things that should only occur for the player belonging to that client.
 
 Player game objects represent the player (that is, the person playing the game) on the server, and have the ability to run commands from the player’s client. These commands are secure client-to-server remote procedure calls. In this server-authoritative system, other non-player server-side game objects cannot receive commands directly from client-side game objects. This is both for security, and to reduce the complexity of building your game. By routing all incoming commands from users through the player game object, you can ensure that these messages come from the right place, the right client, and can be handled in a central location.
 
